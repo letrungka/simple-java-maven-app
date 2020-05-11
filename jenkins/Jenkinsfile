@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'mvn -B -DskipTests clean package'
+                sh 'mvn -T 4C -B -Dmaven.repo.local=maven.uaanew.repository -Dmaven.test.skip=true -Djava.net.preferIPv4Stack=true -Ddebug=false clean package'
             }
         }
         stage('Test') {
